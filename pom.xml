@@ -6,7 +6,7 @@
     <groupId>cn.lzx</groupId>
     <artifactId>springbootajax</artifactId>
     <version>0.0.1-SNAPSHOT</version>
-    <packaging>war</packaging>
+    <packaging>jar</packaging>
 
     <name>SpringBootAjax</name>
     <description>Demo project for Spring Boot</description>
@@ -29,14 +29,19 @@
     <distributionManagement>
         <repository>
             <id>nexus</id>
-            <name>Nexus Snapshot</name>
-            <url>http://118.31.0.218:30011/repository/test/</url>
+            <name>Nexus Release</name>
+            <url>http://118.31.0.218:30011/repository/test-release/</url>
         </repository>
-        <site>
+        <snapshotRepository>
             <id>nexus</id>
-            <name>Nexus Sites</name>
-            <url>dav:http://118.31.0.218:30011/repository/test/</url>
-        </site>
+            <name>Nexus Snapshot</name>
+            <url>http://118.31.0.218:30011/repository/test-snapshot/</url>
+        </snapshotRepository>
+        <!--<site>-->
+            <!--<id>nexus</id>-->
+            <!--<name>Nexus Sites</name>-->
+            <!--<url>dav:http://118.31.0.218:30011/repository/thundersdata-host/</url>-->
+        <!--</site>-->
     </distributionManagement>
 
     <dependencies>
