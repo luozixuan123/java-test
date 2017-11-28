@@ -26,18 +26,18 @@
         <mysql.connector.java>5.1.21</mysql.connector.java>
     </properties>
 
-    <!--<distributionManagement>-->
-        <!--<repository>-->
-            <!--<id>nexus</id>-->
-            <!--<name>Nexus Snapshot</name>-->
-            <!--<url>http://118.31.0.218:30011/repository/thundersdata/</url>-->
-        <!--</repository>-->
-        <!--<site>-->
-            <!--<id>nexus</id>-->
-            <!--<name>Nexus Sites</name>-->
-            <!--<url>dav:http://118.31.0.218:30011/repository/thundersdata/</url>-->
-        <!--</site>-->
-    <!--</distributionManagement>-->
+    <distributionManagement>
+        <repository>
+            <id>nexus</id>
+            <name>Nexus Snapshot</name>
+            <url>http://118.31.0.218:30011/repository/test/</url>
+        </repository>
+        <site>
+            <id>nexus</id>
+            <name>Nexus Sites</name>
+            <url>dav:http://118.31.0.218:30011/repository/test/</url>
+        </site>
+    </distributionManagement>
 
     <dependencies>
         <dependency>

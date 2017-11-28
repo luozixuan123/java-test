@@ -1,0 +1,4 @@
+org\springboot\dao\TestMapper.class
+org\springboot\web\HelloController.class
+org\springboot\SpringBootAjaxApplication.class
+org\springboot\entity\User.class
