@@ -26,6 +26,20 @@
         <mysql.connector.java>5.1.21</mysql.connector.java>
     </properties>
 
+    <repositories>
+        <repository>
+            <id>maven-central</id>
+            <name>maven-central</name>
+            <url>http://118.31.0.218:30011/repository/test/</url>
+            <snapshots>
+                <enabled>true</enabled>
+            </snapshots>
+            <releases>
+                <enabled>true</enabled>
+            </releases>
+        </repository>
+    </repositories>
+
     <distributionManagement>
         <repository>
             <id>nexus</id>
