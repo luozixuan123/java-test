@@ -23,6 +23,7 @@ node ('nhf') {
     }
     def configFile = readFile("./.jenkins/config.json")
     def configStates = parseJsonText(configFile)
+    def messageUrl = configStates.jenkinsUrl+'/jobs/'+configStates.projectName
 
     stage("java test"){
 
@@ -37,6 +38,10 @@ node ('nhf') {
         container('maven'){
 
             try{
+
+                stage("mm"){
+                    error 'sonarqube check fail'
+                }
 
                 stage("maven test"){
                     sh "mvn surefire-report:report"
@@ -63,9 +68,10 @@ node ('nhf') {
                     echo 'get check report complete'
                 }
             }catch(Exception e){
-                sh """curl """+configStates.dingUrl+""" -H 'Content-Type: application/json' -d '{"link": {"text": """+configStates.messageUrl+""", "title":"""+configStates.title+""", "picUrl": https://ss0.bdstatic.com/94oJfD_bAAcT8t7mm9GUKT-xh_/timg?image&quality=100&size=b4000_4000&sec=1511920906&di=b94ce7a2bc7f69c2083c88914c947ac7&src=http://picm.photophoto.cn/015/037/001/0370010335.jpg", "messageUrl": """+configStates.messageUrl+"""}, "msgtype": "link"}'"""
-                }
-
+                echo '!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!'
+                sh """
+                curl '${configStates.dingUrl}' -H 'Content-Type: application/json' -d '{"link": {"text": "bulid fail", "title":"build", "picUrl": "http://picm.photophoto.cn/015/037/001/0370010335.jpg", "messageUrl": "${messageUrl}"}, "msgtype": "link"}'
+                """
             }
         }
 
@@ -87,4 +93,5 @@ node ('nhf') {
             echo 'archive artifacts complete'
         }
     }
+}
 }
