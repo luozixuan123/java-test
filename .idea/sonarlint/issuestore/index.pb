@@ -5,5 +5,3 @@ B
 springbootajax.iml,5\2\52565d2ac8dc3b9650300cf943629ac36dd1c66a
 <
 settings.xml,1\d\1d784fce58c3719506730fb9749600554125b511
-;
-Jenkinsfile,0\c\0c2c5c506cef0ed2d3ad2b7e45e97980b66f5520
