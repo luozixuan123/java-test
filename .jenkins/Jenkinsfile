@@ -23,7 +23,7 @@ node ('nhf') {
     }
     def configFile = readFile("./.jenkins/config.json")
     def configStates = parseJsonText(configFile)
-    def messageUrl = configStates.jenkinsUrl+'/jobs/'+configStates.projectName
+    def messageUrl = configStates.jenkinsUrl+'/job/'+configStates.projectName
 
     stage("java test"){
 
@@ -68,12 +68,7 @@ node ('nhf') {
                 curl '${configStates.dingUrl}' -H 'Content-Type: application/json' -d '{"link": {"text": "bulid fail", "title":"build", "picUrl": "http://picm.photophoto.cn/015/037/001/0370010335.jpg", "messageUrl": "${messageUrl}"}, "msgtype": "link"}'
                 """
             }
-        }
 
-        //检查通过则部署
-        stage("depoly"){
-            // ssh
-            echo 'deploy complete'
         }
 
         //生成测试报告
@@ -82,11 +77,20 @@ node ('nhf') {
             echo 'push test report complete'
         }
 
-        //生成代码包
+        // //生成代码包
         stage('archive artifacts'){
             archiveArtifacts 'target/*.jar'
             echo 'archive artifacts complete'
         }
+
+        //检查通过则部署
+        stage("depoly"){
+                sshagent (credentials: ['53d08ad8-640c-4763-b083-96d694dad736']) {
+                sh 'ssh -o StrictHostKeyChecking=no -l root 106.14.148.100 uname -a'
+                sh 'scp -r . root@106.14.148.100:/test/code/java'
+            }
+        }
+
     }
 }
 }
