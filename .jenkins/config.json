@@ -1,7 +1,8 @@
 {
-	"projectName":"java_test",
-	"projectVersion":"1.1",
-	"sonarReportFile":"sonar_report.txt",
-	"sonarHostUrl":"http://116.62.235.239:30622",
-	"jenkinsUrl":"http://localhost:8080",
-	"dingUrl":"https://oapi.dingtalk.com/robot/send?access_token=5b22f6852225ed5effcae5e601018d3ad31d084d22bf5f988cdd9bf7e0db44fa",
+  "projectName": "java_test",
+  "projectVersion": "1.1",
+  "sonarReportFile": "sonar_report.txt",
+  "sonarHostUrl": "http://116.62.235.239:30622",
+  "jenkinsUrl": "http://localhost:8080",
+  "dingUrl": "https://oapi.dingtalk.com/robot/send?access_token=5b22f6852225ed5effcae5e601018d3ad31d084d22bf5f988cdd9bf7e0db44fa"
+}
