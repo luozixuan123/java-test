@@ -39,10 +39,6 @@ node ('nhf') {
 
             try{
 
-                stage("mm"){
-                    error 'sonarqube check fail'
-                }
-
                 stage("maven test"){
                     sh "mvn surefire-report:report"
                     echo 'maven test'
@@ -68,7 +64,6 @@ node ('nhf') {
                     echo 'get check report complete'
                 }
             }catch(Exception e){
-                echo '!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!'
                 sh """
                 curl '${configStates.dingUrl}' -H 'Content-Type: application/json' -d '{"link": {"text": "bulid fail", "title":"build", "picUrl": "http://picm.photophoto.cn/015/037/001/0370010335.jpg", "messageUrl": "${messageUrl}"}, "msgtype": "link"}'
                 """
