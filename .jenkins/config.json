@@ -2,7 +2,7 @@
   "projectName": "java_test",
   "projectVersion": "1.1",
   "sonarReportFile": "sonar_report.txt",
-  "sonarHostUrl":"http://sonarqube.kubernetes-plugin:9000",
-  "jenkinsUrl": "http://118.31.0.218:30026",
+  "sonarHostUrl":"http://sonarqube.devops:9000",
+  "jenkinsUrl": "http://47.96.158.229:30025",
   "dingUrl": "https://oapi.dingtalk.com/robot/send?access_token=5b22f6852225ed5effcae5e601018d3ad31d084d22bf5f988cdd9bf7e0db44fa"
 }
